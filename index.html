@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="generateTable()">Generate Table</button>
+    <div id="tableContainer"></div>
+    <script>
+
+        first = parseInt(prompt("Please input the first number"));
+        last = parseInt(prompt("Please input the last number"));
+        if (first < 2 || first > 10 || last < 2 || last > 10) {
+            do {
+                alert("Please enter numbers between 2 and 10");
+                first = parseInt(prompt("Please input the first number"));
+                last = parseInt(prompt("Please input the last number"));
+            } while (first < 2 || first > 10 || last < 2 || last > 10)
+        }
+
+        function generateTable(){
+            var table = "<table border = '2'><tr><td> </td>";
+            var a = 2;
+            for (i = 1; i<10; i++){
+                table += "<td>" + a + "</td>";
+                a++;
+            }
+            table += "</tr>";
+
+            var b = first;
+            for (j = first; j<=last; j++){
+                table += "<tr><td>" + b;
+                for (k = 2; k<=10; k++){
+                    table += "<td>" + b*k + "</td>";
+                }
+                b++;
+            }
+            table += "</table>";
+
+            document.getElementById("tableContainer").innerHTML = table;
+        }
+    </script>
+</body>
+</html>
